@@ -11894,25 +11894,25 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO 1</span>
 
 <span class="c1"># 目标：计算价值的最小值</span>
-<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># 目标：计算价值的最大值</span>
-<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># 目标：计算价值的平均值</span>
-<span class="n">mean_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mean_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># 目标：计算价值的中值</span>
-<span class="n">median_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">median_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># 目标：计算价值的标准差</span>
-<span class="n">std_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">std_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># 目标：输出计算的结果</span>
 <span class="k">print</span> <span class="s2">&quot;Statistics for Boston housing dataset:</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -11942,8 +11942,8 @@ div#notebook {
 Minimum price: $105,000.00
 Maximum price: $1,024,800.00
 Mean price: $454,342.94
-Median price $438,900.00
-Standard deviation of prices: $165,340.28
+Median price $454,342.94
+Standard deviation of prices: $165,171.13
 </pre>
 </div>
 </div>
@@ -13286,7 +13286,7 @@ RK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-4---&#22238;&#31572;:">&#38382;&#39064; 4 - &#22238;&#31572;:<a class="anchor-link" href="#&#38382;&#39064;-4---&#22238;&#31572;:">&#182;</a></h3><ul>
-<li>根据图像4，max_depth=10，随着训练数量的增加，训练集评分略有下降，但基本稳定在1.0，验证集曲线波动上升。如果有更多的训练数据，能够有效提升模型的表现.</li>
+<li>根据图像4，max_depth=10,模型过拟合，训练集没有变化，验证集博定较大。如果有更多训练集，能够有效提升模型表现。</li>
 </ul>
 
 </div>
@@ -13832,7 +13832,7 @@ FCU+ERHxFCU+ERHxlP8BcdjBH6qAFVQAAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-7---&#22238;&#31572;:">&#38382;&#39064; 7 - &#22238;&#31572;:<a class="anchor-link" href="#&#38382;&#39064;-7---&#22238;&#31572;:">&#182;</a></h3><ul>
-<li>网格搜索通过遍历参数，优化训练模型。</li>
+<li>网格搜索通过遍历参数，优化训练模型。它的作用是寻找模型的最优参数，在寻找最优参数时，便利的参数和参数值由用户确定，最优参数由准确率最高的结果对应的参数确定。</li>
 </ul>
 
 </div>
@@ -13858,7 +13858,8 @@ FCU+ERHxFCU+ERHxlP8BcdjBH6qAFVQAAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-8---&#22238;&#31572;&#65306;">&#38382;&#39064; 8 - &#22238;&#31572;&#65306;<a class="anchor-link" href="#&#38382;&#39064;-8---&#22238;&#31572;&#65306;">&#182;</a></h3><ul>
-<li>k折交叉:将数据分为k个子集，每次将其中1个子集作为验证集，剩余子集作为测试集，循环N次</li>
+<li>k折交叉:将数据分为k个子集，每次将其中1个子集作为验证集，剩余子集作为训练集，循环N次</li>
+<li>GridSearch通过将组合后的参数循环应用到交叉验证集上，每组参数组合得到1个交叉验证的评论准确率，准确率最高的参数为最后参数组合</li>
 <li>GridSearch的cv_results属性能告诉我们使用的gridSearch参数组合，和交叉验证的数据集对应的结果</li>
 <li>如果不使用交叉验证，因为数据集分割时的随机性，可能造成结果偏低或偏高，导致并不能使用最优参数</li>
 </ul>
@@ -13887,7 +13888,7 @@ FCU+ERHxFCU+ERHxlP8BcdjBH6qAFVQAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO 4</span>
@@ -13909,7 +13910,7 @@ FCU+ERHxFCU+ERHxlP8BcdjBH6qAFVQAAAAASUVORK5CYII=
 
     <span class="n">scoring_fnc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">performance_metric</span><span class="p">)</span>
 
-    <span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scoring_fnc</span><span class="p">)</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scoring_fnc</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="n">cross_validator</span><span class="p">)</span>
 
     <span class="c1"># 基于输入数据 [X,y]，进行网格搜索</span>
     <span class="n">grid</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -13983,7 +13984,7 @@ FCU+ERHxFCU+ERHxlP8BcdjBH6qAFVQAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 基于训练数据，获得最优模型</span>
@@ -14210,10 +14211,12 @@ Predicted selling price for Client 3&#39;s home: $937,230.00
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 请先注释掉 fit_model 函数里的所有 print 语句</span>
+<span class="k">print</span> <span class="n">client_data</span>
+
 <span class="n">vs</span><span class="o">.</span><span class="n">PredictTrials</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">fit_model</span><span class="p">,</span> <span class="n">client_data</span><span class="p">)</span>
 </pre></div>
 
@@ -14231,7 +14234,8 @@ Predicted selling price for Client 3&#39;s home: $937,230.00
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Trial 1: $391,183.33
+<pre>[[5, 17, 15], [4, 32, 22], [8, 3, 12]]
+Trial 1: $391,183.33
 Trial 2: $411,417.39
 Trial 3: $415,800.00
 Trial 4: $428,316.00
@@ -14256,7 +14260,7 @@ Range in prices: $37,132.67
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-12---&#22238;&#31572;&#65306;">&#38382;&#39064; 12 - &#22238;&#31572;&#65306;<a class="anchor-link" href="#&#38382;&#39064;-12---&#22238;&#31572;&#65306;">&#182;</a></h3><ul>
-<li>不！</li>
+<li>是，对于client 1，预测数据始终保持在39万美元-41.5w万美元之间，结果的波动较小。</li>
 </ul>
 
 </div>
