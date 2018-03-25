@@ -12138,9 +12138,9 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答:</strong></p>
 <ul>
-<li>第1个代表餐饮企业，因为蔬菜熟食所占的比例最高</li>
-<li>第2个代表超市，因为采购的比例很平均</li>
-<li>第3个代表咖啡馆，因为零食和冷藏类视频比例最高</li>
+<li>第1个代表餐饮企业，因为第一条数据的蔬菜和冷藏食品维度与平均值的差异超过这2个维度的方差，这2类采购占比过高的企业，一般为餐饮企业</li>
+<li>第2个代表超市，因为6个维度中有2个维度和平均值十分接近，牛奶和生活用品远远超过平均值，超市是这2类产品的主要采购者</li>
+<li>第3个代表咖啡馆，这条数据在5个维度都远远小于维度的平均值，冷藏食品反而超过平均值，证明不是超市和餐饮这种多种产品都消耗量较大的企业，是咖啡馆这种依赖冷藏食品的企业</li>
 </ul>
 
 </div>
@@ -12229,7 +12229,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答:</strong>
-我尝试预测零食(Grocery)这一特征, 这个特征对于区分用户消费习惯是必要的，因为预测得分是0.75，比较理想。</p>
+我尝试预测零食(Grocery)这一特征, 这个特征对于区分用户消费习惯是必要性不大，因为删除这个特征后的预测得分为.75 ，证明该特征通过其余特征可以预测得到，不是十分有必要</p>
 
 </div>
 </div>
@@ -14036,7 +14036,7 @@ juM4juM4juM4U+T/A4QlrUkuXgO6AAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答:</strong>
-存在一定的相关性，例如grocery与detergens_paper和milk之间就存在正相关性，当grocery的值增长时，另外2个值也在增长。他们的分布类似线性分布.</p>
+存在一定的相关性，我发现grocery和milk之间就存在正相关性，他们呈现出线性关系，这印证了我尝试预测的特征的相关性。</p>
 
 </div>
 </div>
@@ -19070,7 +19070,7 @@ YDAYDAaDwWDYEPz/mX9ycZaHgI0AAAAASUVORK5CYII=
 <p><strong>回答:</strong></p>
 <ul>
 <li>65,66,75,128,154</li>
-<li>这些点应该被溢出，因为异常值是噪音，会被学习结果造成很大的干扰。</li>
+<li>这些点应该被移除，因为异常值是噪音，会被学习结果造成很大的干扰。这里只删除出现次数多余1次的异常值，是因为总体样本数为440，而全部异常值为40个左右，如果全部删除，会造成超过10%的样本丢失。</li>
 </ul>
 
 </div>
@@ -19463,9 +19463,9 @@ gg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答:</strong></p>
 <ul>
-<li>第一个和第二个主成功代表了0.7068方差</li>
-<li>前四个主成功代表了0.931方差</li>
-<li>前四个主成分最能代表餐馆的消费行为，因为熟食冷藏食品的权重很高</li>
+<li>第一个和第二个主成分代表了0.7068方差</li>
+<li>前四个主成分代表了0.931方差</li>
+<li>前四个主成分最能代表食品店的消费行为，从蔬菜维度，前四个主成分都是负权重，这表示不可能为餐饮企业；从牛奶维度，前2个主成分为负，第三个和第四个主成分的权重极小，从零食这个维度，前四个主成分都极小或为负，这表示不可能为超市类型的企业；在冷藏食品这个维度，第三个和第四个主成分正权极高，在熟食这个维度，第三个主成分也表现出极高的维度；因为我认为前四个主成分最能代表食品店。</li>
 </ul>
 
 </div>
@@ -20829,9 +20829,9 @@ AABJRU5ErkJggg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答:</strong></p>
 <ul>
-<li>K-Means 优点是原理简单，收敛快</li>
-<li>高斯混合模型优点是可以拟合任意连续函数</li>
-<li>我选择了K-Means，因为在当前数据下K-Means算法可用</li>
+<li>K-Means 优点是原理简单，收敛快，执行效率高</li>
+<li>高斯混合模型优点是可以拟合任意连续函数，能够对维度区分权重</li>
+<li>我选择了K-Means，因为在当前数据下，数据之间特征差异大，适合硬分类；数据特征全部为数值型，数据维度较少，不需要区分权重，并且因为聚类数量较少，适合K-Means聚类算法。</li>
 </ul>
 
 </div>
@@ -21718,8 +21718,8 @@ gLZDIAQAAACg7fx/aF7EYeH9ZtcAAAAASUVORK5CYII=
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答:</strong></p>
 <ul>
-<li>Segment 0:餐饮企业，因为除了花费集中在蔬菜上</li>
-<li>Segment 1: 便利店，因为花费很平均，特别是牛奶零食代表了便利店的特性</li>
+<li>Segment 0:餐饮企业，在蔬菜这个维度，虽然低于平均值但是高于第二四分卫，在其余各个维度都低于平均值，可以使用蔬菜这个维度来标注该类型企业，为餐饮企业</li>
+<li>Segment 1: 便利店，在牛奶，零食，生活用品这3个维度，高于平均值，在冷藏食品和熟食这2个维度，远远低于平均值，因此可以用牛奶零食生活用品类标注这类企业，并且这类企业不会具有食品特征，因此超市最为接近</li>
 </ul>
 
 </div>
